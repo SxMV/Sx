@@ -1,1 +1,1 @@
-# Sx
+Cringgameplays.github.io
