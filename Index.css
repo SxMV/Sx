@@ -28,18 +28,7 @@ form {
 
 input[type="text"],
 input[type="email"],
-textarea {
-    width: calc(100% - 40px);
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    resize: none;
-    background-color: #666; /* Cor de fundo dos campos de entrada */
-    color: #fff; /* Cor do texto nos campos de entrada */
-}
-
+textarea,
 input[type="file"] {
     width: calc(100% - 40px);
     margin-bottom: 20px;
@@ -47,8 +36,8 @@ input[type="file"] {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: #666; /* Cor de fundo do campo de seleção de arquivo */
-    color: #fff; /* Cor do texto no campo de seleção de arquivo */
+    background-color: #666; /* Cor de fundo dos campos de entrada */
+    color: #fff; /* Cor do texto nos campos de entrada */
 }
 
 button {
