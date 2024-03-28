@@ -37,6 +37,10 @@ textarea {
     resize: none;
 }
 
+input[type="file"] { /* Estilo para o campo de upload de foto */
+    margin-bottom: 20px;
+}
+
 button {
     width: 100%;
     padding: 10px;
