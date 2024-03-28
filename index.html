@@ -8,6 +8,49 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="Index.js"></script>
 </head>
+
+
+
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #console {
+            width: 100%;
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9; /* Cor de fundo do console */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="console"></div>
+    </div>
+    <script src="script.js"></script>
+
+
+
     
 <body>
     <div class="container">
@@ -24,28 +67,7 @@
             <div id="response"></div>
         </div>
     </div>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        #console {
-            width: 80%;
-            max-width: 600px;
-            height: 200px;
-            overflow-y: auto;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 20px;
-            background-color: #fff;
-        }
-    </style>
+    
 </head>
 <body>
     <div id="console"></div>
