@@ -41,8 +41,7 @@ function sendToDiscord() {
         $.ajax({
             type: "POST",
             url: webhookUrl,
-            data: JSON.stringify({ content: discordMessage }),
-            contentType: "application/json",
+            data: { content: discordMessage }, // Removido o JSON.stringify
             success: function(response) {
                 $('#response').text('Mensagem enviada com sucesso para o Discord').addClass('success').fadeIn();
                 setTimeout(function(){
