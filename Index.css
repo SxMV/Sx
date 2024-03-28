@@ -64,46 +64,11 @@ button:hover {
     background-color: #28a745;
 }
 
-.success, .error {
-    display: inline-block;
-    margin-right: 5px;
-    font-size: 18px;
+.error {
+    background-color: #dc3545;
 }
 
 .response-text {
     color: #fff;
     font-weight: bold;
-}
-
-
-.cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    padding: 20px; /* Aumentando o tamanho do padding */
-    text-align: center;
-    font-size: 16px; /* Aumentando o tamanho da fonte */
-    z-index: 9999; /* Garantindo que a mensagem de cookie fique acima de outros elementos */
-}
-
-.btn-accept, .btn-reject {
-    margin: 5px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px; /* Diminuindo o tamanho da fonte dos botões */
-}
-
-.btn-accept {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.btn-reject {
-    background-color: #dc3545;
-    color: #fff;
 }
