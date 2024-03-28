@@ -1,3 +1,11 @@
+// script.js
+
+$(document).ready(function() {
+    $('#submitBtn').click(function() {
+        sendToDiscord();
+    });
+});
+
 function sendToDiscord() {
     var name = $('#name').val();
     var email = $('#email').val();
