@@ -1,57 +1,74 @@
-/* styles.css */
-
-/* Estilos gerais */
 body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #1e1e1e; /* Cor de fundo do modo escuro */
-    color: #fff; /* Cor do texto principal no modo escuro */
+    background-color: #222;
+    color: #fff;
 }
 
 .container {
-    width: 80%;
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #333; /* Cor de fundo do contêiner no modo escuro */
+    max-width: 600px;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-h1 {
-    color: #fff; /* Cor do título */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
-    width: 100%;
+    width: calc(100% - 40px);
+    margin-bottom: 20px;
     padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #555;
     border-radius: 5px;
-    background-color: #fff; /* Cor de fundo dos campos de entrada */
-    color: #000; /* Cor do texto nos campos de entrada */
+    box-sizing: border-box;
+    resize: none;
+    background-color: #444;
+    color: #fff;
 }
 
-button,
-a.button {
-    padding: 10px 20px;
-    margin: 10px 0;
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #007bff; /* Cor de fundo do botão */
-    color: #fff; /* Cor do texto do botão */
+    transition: background-color 0.3s;
 }
 
-button:hover,
-a.button:hover {
-    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+button:hover {
+    background-color: #0056b3;
 }
 
 #response {
-    margin-top: 10px;
-    color: #ccc; /* Cor do texto da resposta */
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.success {
+    background-color: #28a745;
+}
+
+.error {
+    background-color: #dc3545;
+}
+
+.response-text {
+    color: #fff;
+    font-weight: bold;
 }
