@@ -6,46 +6,6 @@ body {
     color: #fff;
 }
 
-/* styles.css */
-
-/* Estilos gerais */
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #1e1e1e; /* Cor de fundo do modo escuro */
-    color: #fff; /* Cor do texto principal no modo escuro */
-}
-
-.container {
-    width: 80%;
-    max-width: 800px;
-    background-color: #2b2b2b; /* Cor de fundo do contêiner no modo escuro */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-/* Estilos do console */
-#console-container {
-    background-color: #000;
-}
-
-#console {
-    width: 100%;
-    height: 200px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #333; /* Cor de fundo do console no modo escuro */
-    color: #fff; /* Cor do texto do console no modo escuro */
-}
-
-
 .container {
     max-width: 600px;
     margin: 0 auto;
