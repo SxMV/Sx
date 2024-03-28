@@ -21,7 +21,7 @@ function sendToDiscord() {
     discordMessage += 'Mensagem:\n' + message;
 
     // URL do Webhook do Discord
-    var webhookUrl = 'https://discord.com/api/webhooks/1222733165395837009/nQxy-tWh-_0jBx5RIs8bKr_rz6NiOetPfO4VdaZeUIEZ1k5H4UiUziRziJpeChHYfLmc';
+    var webhookUrl = 'https://discord.com/api/webhooks/1222341020625145976/GDWz-8JaJuxbRdoA6CgVRU8Pt9z4MGEhx-_wV7JtyX2mLFAxJQSDcJZjv4UjbfkqjH1F';
 
     // Enviar mensagem para o Discord via Webhook
     $.ajax({
