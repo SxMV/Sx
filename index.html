@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Suporte ao Cliente</title>
-    <link rel="stylesheet" href="Config/Index.css">
+    <link rel="stylesheet" href="Index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Index.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Formulário de Suporte ao Cliente</h1>
+            <h1>Formulário de Suporte
         </div>
         <div class="form-wrapper">
             <form id="supportForm">
@@ -21,13 +23,5 @@
             <div id="response"></div>
         </div>
     </div>
-
-    <div id="cookieMessage" class="cookie-message">
-        <p>Este site utiliza cookies para garantir uma melhor experiência de navegação. Ao continuar, você concorda com o uso de cookies.</p>
-        <button id="acceptCookies" class="cookie-btn" onclick="acceptCookies()">Aceitar</button>
-        <button id="rejectCookies" class="cookie-btn" onclick="rejectCookies()">Rejeitar</button>
-    </div>
-
-    <script src="Config/Index.js"></script>
 </body>
 </html>
