@@ -1,95 +1,72 @@
-/* styles.css */
+// script.js
 
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #222; /* Fundo escuro */
-    color: #fff; /* Cor do texto */
-}
+$(document).ready(function() {
+    $('#submitBtn').click(function() {
+        // Desativar o botão de envio para evitar envios múltiplos
+        $(this).prop('disabled', true);
 
-.container {
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 20px;
-}
+        // Iniciar temporizador de 2 minutos
+        var timeout = setTimeout(function() {
+            $('#response').text('Tempo limite excedido. Por favor, tente novamente.').addClass('error').fadeIn();
+            $('#submitBtn').prop('disabled', false); // Reativar o botão de envio
+        }, 120000); // 2 minutos em milissegundos
 
-.header {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        // Enviar mensagem para o Discord
+        sendToDiscord(timeout);
+    });
+});
 
-form {
-    background-color: #333; /* Cor de fundo do formulário */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+function sendToDiscord(timeout) {
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var message = $('#message').val();
+    var photoInput = document.getElementById('photo');
+    var photo = photoInput.files[0]; // Obter a foto selecionada pelo usuário
 
-input[type="text"],
-input[type="email"],
-textarea,
-input[type="file"] {
-    width: calc(100% - 40px);
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #666; /* Cor da borda */
-    border-radius: 5px;
-    box-sizing: border-box;
-    background-color: #444; /* Cor de fundo dos campos de entrada */
-    color: #fff; /* Cor do texto nos campos de entrada */
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff; /* Cor de fundo do botão */
-    color: #fff; /* Cor do texto do botão */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
-}
-
-#response {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    display: none;
-    color: #fff; /* Cor do texto nas mensagens de resposta */
-    font-weight: bold;
-}
-
-.success {
-    background-color: #28a745; /* Cor de fundo da mensagem de sucesso */
-}
-
-.error {
-    background-color: #dc3545; /* Cor de fundo da mensagem de erro */
-}
-
-.response-text {
-    color: #fff; /* Cor do texto nas mensagens de resposta */
-    font-weight: bold;
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        padding: 10px;
+    // Verificar se todos os campos obrigatórios foram preenchidos
+    if (!name || !email || !message) {
+        $('#response').text('Por favor, preencha todos os campos.').addClass('error').fadeIn();
+        $('#submitBtn').prop('disabled', false); // Reativar o botão de envio
+        return; // Abortar o envio se algum campo estiver vazio
     }
 
-    form {
-        padding: 15px;
+    // Monta a mensagem a ser enviada para o Discord
+    var discordMessage = 'Nome: ' + name + '\n';
+    discordMessage += 'E-mail: ' + email + '\n\n';
+    discordMessage += 'Mensagem:\n' + message;
+
+    // URL do Webhook do Discord
+    var webhookUrl = 'https://discord.com/api/webhooks/1222733165395837009/nQxy-tWh-_0jBx5RIs8bKr_rz6NiOetPfO4VdaZeUIEZ1k5H4UiUziRziJpeChHYfLmc';
+
+    // Enviar mensagem para o Discord via Webhook
+    var formData = new FormData();
+    formData.append('content', discordMessage); // Adicionar mensagem ao FormData
+
+    if (photo) {
+        formData.append('photo', photo); // Adicionar foto ao FormData, se existir
     }
 
-    input[type="text"],
-    input[type="email"],
-    textarea,
-    input[type="file"] {
-        width: calc(100% - 20px);
+    $.ajax({
+        type: "POST",
+        url: webhookUrl,
+        data: formData,
+        processData: false,  // Não processar os dados
+        contentType: false,  // Não definir o tipo de conteúdo
+        success: function(response) {
+            clearTimeout(timeout); // Cancelar o temporizador
+            $('#response').text('Mensagem enviada com sucesso para o Discord').addClass('success').fadeIn();
+            setTimeout(function(){
+                $('#response').fadeOut();
+                $('#submitBtn').prop('disabled', false); // Reativar o botão de envio
+            }, 5000);
+        },
+        error: function(xhr, status, error) {
+            clearTimeout(timeout); // Cancelar o temporizador
+            $('#response').text('Erro ao enviar mensagem para o Discord. Por favor, tente novamente mais tarde.').addClass('error').fadeIn();
+            setTimeout(function(){
+                $('#response').fadeOut();
+                $('#submitBtn').prop('disabled', false); // Reativar o botão de envio
+            }, 5000);
+        }
+    });
     }
-}
