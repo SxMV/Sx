@@ -6,7 +6,7 @@
     <title>Suporte 24Hr🌝</title>
     <link rel="stylesheet" href="Index.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="Index.js"></script>
+    <script src="Index.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -18,8 +18,9 @@
                 <input type="text" id="name" name="name" placeholder="Seu nome" required><br>
                 <input type="email" id="email" name="email" placeholder="Seu e-mail" required><br>
                 <textarea id="message" name="message" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea><br>
+                <label for="photo">Selecione uma foto:</label>
                 <input type="file" id="photo" name="photo" accept="image/*"><br> <!-- Campo de upload de foto -->
-                <button type="button" onclick="sendToDiscord()">Enviar</button>
+                <button type="button" id="submitBtn">Enviar</button>
             </form>
             <div id="response"></div>
         </div>
