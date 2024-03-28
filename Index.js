@@ -2,16 +2,33 @@
 
 $(document).ready(function() {
     $('#submitBtn').click(function() {
-        sendToDiscord();
+        // Desativar o botão de envio para evitar envios múltiplos
+        $(this).prop('disabled', true);
+
+        // Iniciar temporizador de 2 minutos
+        var timeout = setTimeout(function() {
+            $('#response').text('Tempo limite excedido. Por favor, tente novamente.').addClass('error').fadeIn();
+            $('#submitBtn').prop('disabled', false); // Reativar o botão de envio
+        }, 120000); // 2 minutos em milissegundos
+
+        // Enviar mensagem para o Discord
+        sendToDiscord(timeout);
     });
 });
 
-function sendToDiscord() {
+function sendToDiscord(timeout) {
     var name = $('#name').val();
     var email = $('#email').val();
     var message = $('#message').val();
     var photoInput = document.getElementById('photo');
     var photo = photoInput.files[0]; // Obter a foto selecionada pelo usuário
+
+    // Verificar se todos os campos obrigatórios foram preenchidos
+    if (!name || !email || !message) {
+        $('#response').text('Por favor, preencha todos os campos.').addClass('error').fadeIn();
+        $('#submitBtn').prop('disabled', false); // Reativar o botão de envio
+        return; // Abortar o envio se algum campo estiver vazio
+    }
 
     // Monta a mensagem a ser enviada para o Discord
     var discordMessage = 'Nome: ' + name + '\n';
@@ -36,15 +53,19 @@ function sendToDiscord() {
         processData: false,  // Não processar os dados
         contentType: false,  // Não definir o tipo de conteúdo
         success: function(response) {
+            clearTimeout(timeout); // Cancelar o temporizador
             $('#response').text('Mensagem enviada com sucesso para o Discord').addClass('success').fadeIn();
             setTimeout(function(){
                 $('#response').fadeOut();
+                $('#submitBtn').prop('disabled', false); // Reativar o botão de envio
             }, 5000);
         },
         error: function(xhr, status, error) {
+            clearTimeout(timeout); // Cancelar o temporizador
             $('#response').text('Erro ao enviar mensagem para o Discord. Por favor, tente novamente mais tarde.').addClass('error').fadeIn();
             setTimeout(function(){
                 $('#response').fadeOut();
+                $('#submitBtn').prop('disabled', false); // Reativar o botão de envio
             }, 5000);
         }
     });
