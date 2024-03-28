@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Suporte ao Cliente</title>
+    <link rel="stylesheet" href="Config/Index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Formulário de Suporte ao Cliente</h1>
+        </div>
+        <div class="form-wrapper">
+            <form id="supportForm">
+                <input type="text" id="name" name="name" placeholder="Seu nome" required><br>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail" required><br>
+                <textarea id="message" name="message" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea><br>
+                <button type="button" onclick="sendToDiscord()">Enviar</button>
+            </form>
+            <div id="response"></div>
+        </div>
+    </div>
+
+    <div id="cookieMessage" class="cookie-message">
+        <p>Este site utiliza cookies para garantir uma melhor experiência de navegação. Ao continuar, você concorda com o uso de cookies.</p>
+        <button id="acceptCookies" class="cookie-btn" onclick="acceptCookies()">Aceitar</button>
+        <button id="rejectCookies" class="cookie-btn" onclick="rejectCookies()">Rejeitar</button>
+    </div>
+
+    <script src="Config/Index.js"></script>
+</body>
+</html>
