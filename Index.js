@@ -52,3 +52,6 @@ function addToConsole(message) {
     consoleElement.append('<p>' + message + '</p>');
     consoleElement.scrollTop(consoleElement[0].scrollHeight);
 }
+
+// Adiciona mensagem inicial ao console
+addToConsole('Bem-vindo ao console. Aqui você verá todas as ações realizadas pelo usuário.');
