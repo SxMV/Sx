@@ -1,3 +1,5 @@
+/* styles.css */
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -55,17 +57,19 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
     display: none;
+    color: #fff; /* Cor do texto nas mensagens de resposta */
+    font-weight: bold;
 }
 
 .success {
-    background-color: #28a745;
+    background-color: #28a745; /* Cor de fundo da mensagem de sucesso */
 }
 
 .error {
-    background-color: #dc3545;
+    background-color: #dc3545; /* Cor de fundo da mensagem de erro */
 }
 
 .response-text {
-    color: #fff;
+    color: #fff; /* Cor do texto nas mensagens de resposta */
     font-weight: bold;
 }
