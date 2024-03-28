@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="Index.js"></script>
 </head>
+    
 <body>
     <div class="container">
         <div class="header">
@@ -23,5 +24,30 @@
             <div id="response"></div>
         </div>
     </div>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #console {
+            width: 80%;
+            max-width: 600px;
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="console"></div>
 </body>
 </html>
