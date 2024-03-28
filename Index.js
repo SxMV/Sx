@@ -13,25 +13,22 @@ function sendToDiscord() {
     var photoInput = document.getElementById('photo');
     var photo = photoInput.files[0]; // Obter a foto selecionada pelo usuário
 
-    // Verificar se todos os campos foram preenchidos
-    if (!name || !email || !message ) {
-        $('#response').text('Por favor, preencha todos os campos e selecione uma foto.').addClass('error').fadeIn();
-        setTimeout(function(){
-            $('#response').fadeOut();
-        }, 5000);
-        return;
-    }
-
-    var formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('message', message);
-    formData.append('photo', photo);
+    // Monta a mensagem a ser enviada para o Discord
+    var discordMessage = 'Nome: ' + name + '\n';
+    discordMessage += 'E-mail: ' + email + '\n\n';
+    discordMessage += 'Mensagem:\n' + message;
 
     // URL do Webhook do Discord
     var webhookUrl = 'https://discord.com/api/webhooks/1222733165395837009/nQxy-tWh-_0jBx5RIs8bKr_rz6NiOetPfO4VdaZeUIEZ1k5H4UiUziRziJpeChHYfLmc';
 
     // Enviar mensagem para o Discord via Webhook
+    var formData = new FormData();
+    formData.append('content', discordMessage); // Adicionar mensagem ao FormData
+
+    if (photo) {
+        formData.append('photo', photo); // Adicionar foto ao FormData, se existir
+    }
+
     $.ajax({
         type: "POST",
         url: webhookUrl,
