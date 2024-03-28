@@ -4,12 +4,12 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #333; /* Cor de fundo escura */
+    background-color: #222; /* Fundo escuro */
     color: #fff; /* Cor do texto */
 }
 
 .container {
-    max-width: 600px;
+    max-width: 90%;
     margin: 0 auto;
     padding: 20px;
 }
@@ -20,7 +20,7 @@ body {
 }
 
 form {
-    background-color: #444; /* Cor de fundo do formulário */
+    background-color: #333; /* Cor de fundo do formulário */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -36,7 +36,7 @@ input[type="file"] {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: #666; /* Cor de fundo dos campos de entrada */
+    background-color: #444; /* Cor de fundo dos campos de entrada */
     color: #fff; /* Cor do texto nos campos de entrada */
 }
 
@@ -75,4 +75,21 @@ button:hover {
 .response-text {
     color: #fff; /* Cor do texto nas mensagens de resposta */
     font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    input[type="file"] {
+        width: calc(100% - 20px);
+    }
 }
