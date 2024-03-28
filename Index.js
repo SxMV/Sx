@@ -1,24 +1,3 @@
-// Função para adicionar uma mensagem ao console
-function addToConsole(message) {
-    var consoleElement = document.getElementById('console');
-    var messageElement = document.createElement('div');
-    messageElement.textContent = message;
-    consoleElement.appendChild(messageElement);
-    consoleElement.scrollTop = consoleElement.scrollHeight; // Rolagem automática para baixo
-}
-
-// Exemplos de uso:
-addToConsole('Página carregada.'); // Mensagem de inicialização
-document.addEventListener('click', function(event) {
-    addToConsole('Clique detectado em (' + event.clientX + ', ' + event.clientY + ')');
-});
-document.addEventListener('keypress', function(event) {
-    addToConsole('Tecla pressionada: ' + event.key);
-});
-
-
-
-
 function sendToDiscord() {
     var name = $('#name').val();
     var email = $('#email').val();
@@ -48,13 +27,13 @@ function sendToDiscord() {
         data: JSON.stringify({ content: discordMessage }),
         contentType: "application/json",
         success: function(response) {
-            $('#response').text('Mensagem enviada com sucesso!').addClass('success').fadeIn();
+            $('#response').text('Mensagem enviada com sucesso para o Discord').addClass('success').fadeIn();
             setTimeout(function(){
                 $('#response').fadeOut();
             }, 5000);
         },
         error: function(xhr, status, error) {
-            $('#response').text('Erro ao enviar mensagem. Por favor, tente novamente mais tarde.').addClass('error').fadeIn();
+            $('#response').text('Erro ao enviar mensagem para o Discord. Por favor, tente novamente mais tarde.').addClass('error').fadeIn();
             setTimeout(function(){
                 $('#response').fadeOut();
             }, 5000);
