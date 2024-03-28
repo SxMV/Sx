@@ -1,3 +1,6 @@
+// script.js
+
+// Função para enviar mensagem para o Discord via Webhook
 function sendToDiscord() {
     var name = $('#name').val();
     var email = $('#email').val();
@@ -28,15 +31,24 @@ function sendToDiscord() {
         contentType: "application/json",
         success: function(response) {
             $('#response').text('Mensagem enviada com sucesso para o Discord').addClass('success').fadeIn();
+            addToConsole('Mensagem enviada para o Discord');
             setTimeout(function(){
                 $('#response').fadeOut();
             }, 5000);
         },
         error: function(xhr, status, error) {
             $('#response').text('Erro ao enviar mensagem para o Discord. Por favor, tente novamente mais tarde.').addClass('error').fadeIn();
+            addToConsole('Erro ao enviar mensagem para o Discord');
             setTimeout(function(){
                 $('#response').fadeOut();
             }, 5000);
         }
     });
+}
+
+// Função para adicionar mensagem ao console
+function addToConsole(message) {
+    var consoleElement = $('#console');
+    consoleElement.append('<p>' + message + '</p>');
+    consoleElement.scrollTop(consoleElement[0].scrollHeight);
 }
