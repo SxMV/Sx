@@ -1,75 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Suporte ao Cliente</title>
-    <link rel="stylesheet" href="Index.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="Index.js"></script>
-</head>
-
-
-
-    
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        .container {
-            width: 80%;
-            max-width: 800px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #console {
-            width: 100%;
-            height: 200px;
-            overflow-y: auto;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 20px;
-            background-color: #f9f9f9; /* Cor de fundo do console */
-        }
-    </style>
+    <title>Console do Usuário</title>
+    <link rel="stylesheet" href="Index.css
 </head>
 <body>
     <div class="container">
+        <h1>Seu Formulário</h1>
+        <form id="supportForm">
+            <input type="text" id="name" name="name" placeholder="Seu nome" required><br>
+            <input type="email" id="email" name="email" placeholder="Seu e-mail" required><br>
+            <textarea id="message" name="message" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea><br>
+            <button type="button" onclick="sendToDiscord()">Enviar para Discord</button>
+            <a id="sendEmailButton" href="#" onclick="sendByEmail()">Enviar por E-mail</a>
+        </form>
+        <div id="response"></div>
+    </div>
+
+    <div class="container" id="console-container">
         <div id="console"></div>
     </div>
-    <script src="script.js"></script>
 
-
-
-    
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Formulário de Suporte
-        </div>
-        <div class="form-wrapper">
-            <form id="supportForm">
-                <input type="text" id="name" name="name" placeholder="Seu nome" required><br>
-                <input type="email" id="email" name="email" placeholder="Seu e-mail" required><br>
-                <textarea id="message" name="message" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea><br>
-                <button type="button" onclick="sendToDiscord()">Enviar</button>
-            </form>
-            <div id="response"></div>
-        </div>
-    </div>
-    
-</head>
-<body>
-    <div id="console"></div>
+    <script src="Index.js"></script>
 </body>
 </html>
