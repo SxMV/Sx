@@ -1,3 +1,24 @@
+// Função para adicionar uma mensagem ao console
+function addToConsole(message) {
+    var consoleElement = document.getElementById('console');
+    var messageElement = document.createElement('div');
+    messageElement.textContent = message;
+    consoleElement.appendChild(messageElement);
+    consoleElement.scrollTop = consoleElement.scrollHeight; // Rolagem automática para baixo
+}
+
+// Exemplos de uso:
+addToConsole('Página carregada.'); // Mensagem de inicialização
+document.addEventListener('click', function(event) {
+    addToConsole('Clique detectado em (' + event.clientX + ', ' + event.clientY + ')');
+});
+document.addEventListener('keypress', function(event) {
+    addToConsole('Tecla pressionada: ' + event.key);
+});
+
+
+
+
 function sendToDiscord() {
     var name = $('#name').val();
     var email = $('#email').val();
