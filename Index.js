@@ -19,12 +19,13 @@ $(document).ready(function() {
 function sendToDiscord(timeout) {
     var name = $('#name').val();
     var email = $('#email').val();
+    var discordName = $('#discordName').val(); // Novo campo para o nome no Discord
     var message = $('#message').val();
     var photoInput = document.getElementById('photo');
     var photo = photoInput.files[0]; // Obter a foto selecionada pelo usuário
 
     // Verificar se todos os campos obrigatórios foram preenchidos
-    if (!name || !email || !message) {
+    if (!name || !email || !discordName || !message) { // Verificação adicionada para o novo campo
         $('#response').text('Por favor, preencha todos os campos.').addClass('error').fadeIn();
         $('#submitBtn').prop('disabled', false); // Reativar o botão de envio
         return; // Abortar o envio se algum campo estiver vazio
@@ -32,7 +33,8 @@ function sendToDiscord(timeout) {
 
     // Monta a mensagem a ser enviada para o Discord
     var discordMessage = 'Nome: ' + name + '\n';
-    discordMessage += 'E-mail: ' + email + '\n\n';
+    discordMessage += 'E-mail: ' + email + '\n';
+    discordMessage += 'Nome no Discord: ' + discordName + '\n\n'; // Inclui o nome no Discord na mensagem
     discordMessage += 'Mensagem:\n' + message;
 
     // URL do Webhook do Discord
