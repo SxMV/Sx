@@ -95,3 +95,15 @@ button:hover {
         width: calc(100% - 20px);
     }
 }
+
+/* Adicionando estilos para o anúncio */
+.advertisement {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Cor de fundo do anúncio */
+    border-radius: 5px;
+    text-align: center;
+    color: #333; /* Cor do texto no anúncio */
+    font-size: 18px;
+    font-weight: bold;
+}
